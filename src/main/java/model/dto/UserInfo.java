@@ -14,11 +14,11 @@ public class UserInfo {
 
     public static class Builder {
         private int id_ = 0;
-        private String name_ = "";
-        private String job_ = "";
-        private String hometown_ = "";
-        private String email_ = "";
-        private Timestamp createdOn_ = null;
+        private String name_;
+        private String job_ ;
+        private String hometown_;
+        private String email_;
+        private Timestamp createdOn_;
 
         public Builder id_(int id) {
             id_ = id;

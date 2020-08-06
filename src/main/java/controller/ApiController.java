@@ -74,8 +74,8 @@ public class ApiController extends HttpServlet {
             UserInfo userInfo = new UserInfo.Builder().name_(req.getParameter("name"))
                     .job_(req.getParameter("job")).hometown_(req.getParameter("hometown")).email_(req.getParameter("email")).build();
 
-            int id = userInfoService.addUser(userInfo);
-            resp.getWriter().println("post work is successful, new user id is" + id);
+            int row = userInfoService.addUser(userInfo);
+            resp.getWriter().println("post work is successful, 추가된 행 개수" + row);
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().println("doPost work failed. please check log");
@@ -87,8 +87,8 @@ public class ApiController extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             resp.setContentType("text/html;charset=utf-8");
-            int rows = userInfoService.removeUser(Integer.parseInt(req.getParameter("id")));
-            resp.getWriter().println("삭제 된 행 개수: " + rows);
+            int row = userInfoService.removeUser(Integer.parseInt(req.getParameter("id")));
+            resp.getWriter().println("Delete work is successful, 삭제 된 행 개수: " + row);
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().println("deleteWork failed. please check log");
@@ -100,7 +100,17 @@ public class ApiController extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             resp.setContentType("text/html;charset=utf-8");
-            resp.getWriter().println("PUT 요청");
+
+            UserInfo userInfo = new UserInfo.Builder().id_(Integer.parseInt(req.getParameter("id")))
+                    .name_(req.getParameter("name")).job_(req.getParameter("job"))
+                    .hometown_(req.getParameter("hometown")).email_(req.getParameter("email")).build();
+
+            if (userInfoService.updateUser(userInfo) < 0) {
+                resp.getWriter().println("update failed, update id 지정이 잘못되었습니다.");
+            } else {
+                int row = userInfoService.updateUser(userInfo);
+                resp.getWriter().println("Put work is successful, 업데이트 행 개수:" + row);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().println("putWork failed. please check log");

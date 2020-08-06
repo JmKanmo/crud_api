@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="KR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Zulu\zulu11.39.15-ca-jdk11.0.7-win_x64\bin"/>
-    <property name="sun.java.command" value="C:\Users\Dell\AppData\Local\Temp\surefire13637805055027280982\surefirebooter4203766636714713001.jar C:\Users\Dell\AppData\Local\Temp\surefire13637805055027280982 2020-08-05T22-35-54_421-jvmRun1 surefire6195703733786101202tmp surefire_011278094086941283080tmp"/>
+    <property name="sun.java.command" value="C:\Users\Dell\AppData\Local\Temp\surefire11440509429007110620\surefirebooter8100613304542139658.jar C:\Users\Dell\AppData\Local\Temp\surefire11440509429007110620 2020-08-06T12-24-14_971-jvmRun1 surefire17646333038794037268tmp surefire_05246377958341628086tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\webapp\target\test-classes;D:\webapp\target\classes;C:\Users\Dell\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Dell\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Dell\.m2\repository\javax\servlet\servlet-api\2.5\servlet-api-2.5.jar;C:\Users\Dell\.m2\repository\org\postgresql\postgresql\42.2.14\postgresql-42.2.14.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -34,7 +34,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="jdk.vendor.version" value="Zulu11.39+15-CA"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Dell\AppData\Local\Temp\surefire13637805055027280982\surefirebooter4203766636714713001.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Dell\AppData\Local\Temp\surefire11440509429007110620\surefirebooter8100613304542139658.jar"/>
     <property name="idea.version2020.1.4" value="true"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,5 +62,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testInit" classname="controller.ApiControllerTest" time="0.002"/>
+  <testcase name="testInit" classname="controller.ApiControllerTest" time="0.001"/>
 </testsuite>

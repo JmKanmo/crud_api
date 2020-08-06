@@ -1,7 +1,7 @@
 package model.dao;
 
 import model.dto.UserInfo;
-import model.sql.DaoSqls;
+import model.sql.sqlCommand;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -30,7 +30,7 @@ public class UserInfoDao {
     public int insertUser(UserInfo userInfo) throws SQLException {
         try (
                 Connection connection = dataSource.getConnection();
-                PreparedStatement ps = (PreparedStatement) connection.prepareStatement(DaoSqls.INSERT_USER);) {
+                PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sqlCommand.INSERT_USER);) {
             ps.setString(1, userInfo.getName());
             ps.setString(2, userInfo.getJob());
             ps.setString(3, userInfo.getHometown());
@@ -47,7 +47,7 @@ public class UserInfoDao {
 
         try (
                 Connection connection = dataSource.getConnection();
-                PreparedStatement ps = (PreparedStatement) connection.prepareStatement(DaoSqls.SELECT_ALL_USER);
+                PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sqlCommand.SELECT_ALL_USER);
         ) {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -71,7 +71,7 @@ public class UserInfoDao {
 
         try (
                 Connection connection = dataSource.getConnection();
-                PreparedStatement ps = connection.prepareStatement(DaoSqls.SELECT_USER);
+                PreparedStatement ps = connection.prepareStatement(sqlCommand.SELECT_USER);
         ) {
             ps.setInt(1, id);
 
@@ -94,7 +94,7 @@ public class UserInfoDao {
 
     public int deleteUser(int id) throws SQLException {
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement ps = (PreparedStatement) connection.prepareStatement(DaoSqls.DELETE_USER);) {
+             PreparedStatement ps = (PreparedStatement) connection.prepareStatement(sqlCommand.DELETE_USER);) {
             ps.setInt(1, id);
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -102,7 +102,19 @@ public class UserInfoDao {
         }
     }
 
-    public int updateUser() {
-        return 0;
+    public int updateUser(UserInfo userInfo) throws SQLException {
+        try (
+                Connection connection = dataSource.getConnection();
+                PreparedStatement ps = connection.prepareStatement(sqlCommand.UPDATE_USER);
+        ) {
+            ps.setString(1, userInfo.getName());
+            ps.setString(2, userInfo.getJob());
+            ps.setString(3, userInfo.getHometown());
+            ps.setString(4, userInfo.getEmail());
+            ps.setInt(5, userInfo.getId());
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
     }
 }

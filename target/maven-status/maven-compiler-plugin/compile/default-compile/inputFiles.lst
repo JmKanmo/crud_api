@@ -1,6 +1,6 @@
 D:\webapp\src\main\java\model\dao\UserInfoDao.java
-D:\webapp\src\main\java\model\sql\DaoSqls.java
 D:\webapp\src\main\java\controller\ApiController.java
 D:\webapp\src\main\java\model\dto\UserInfo.java
 D:\webapp\src\main\java\service\UserInfoServiceImpl.java
+D:\webapp\src\main\java\model\sql\sqlCommand.java
 D:\webapp\src\main\java\service\UserInfoService.java

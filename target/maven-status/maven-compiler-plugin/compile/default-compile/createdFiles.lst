@@ -1,4 +1,5 @@
 service\UserInfoService.class
 model\dto\UserInfo.class
+model\dto\UserInfo$1.class
 controller\ApiController.class
 model\dao\UserInfoDao.class
